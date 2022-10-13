@@ -5,7 +5,7 @@ from django.template import Context, Template, loader
 from django.shortcuts import render
 import random
 
-from home.models import Persona
+from home.models import Humano
 
 def hola(request):
     return HttpResponse("<h1>Buenas clase 41765</h1>")
@@ -24,8 +24,7 @@ def mi_temple(request):
    
     cargar_archivo = open(r"C:\Proyecto porfolio\home\templates\mi_template.html", "r")
     
-    template = Template(cargar_archivo.read())
-    
+    template = Template(cargar_archivo.read())    
     cargar_archivo.close()
     
     contexto = Context()
@@ -58,7 +57,7 @@ def prueba_template(request):
 
 def crear_persona(request, nombre, apellido):
     
-    persona = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
+    persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
     persona.save()
     
     # template = loader.get_template("crear_persona.html")
@@ -70,7 +69,7 @@ def crear_persona(request, nombre, apellido):
 
 def ver_personas(request):
     
-    personas = Persona.objects.all()
+    personas = Humano.objects.all()
     
     # template = loader.get_template("ver_personas.html")
     

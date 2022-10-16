@@ -96,3 +96,6 @@ def ver_personas(request):
 def index(request):
     
     return render(request, "home/index.html")
+
+def nosotros(request):
+    return render(request, "home/nosotros.html")
